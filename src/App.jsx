@@ -7,9 +7,9 @@ import Friends from './pages/friends'
 
 export const ENDPOINTS = {
   // signup: `${API_URL}/signup`, // POST { email, password, username }
-  signup: 'http://localhost:3000/signup',
+  signup: 'http://localhost:3000/auth/signup',
   // login: `${API_URL}/login`, // POST { email, password } -> token
-  login: 'http://localhost:3000/login',
+  login: 'http://localhost:3000/auth/login',
   // posts: `${API_URL}/posts`, // GET public + friends' posts
   posts: 'http://localhost:3000/posts',
   // createPost: `${API_URL}/posts`, // POST { title, content, visibility } -> new post
@@ -17,7 +17,7 @@ export const ENDPOINTS = {
   // users: `${API_URL}/users`, // GET all users
   users: 'http://localhost:3000/users',
   // friends: `${API_URL}/friends`, // POST { friend_id } -> follow a user
-  friends: 'http://localhost:3000/friends',
+  friends: 'http://localhost:3000/friend',
 }
 
 function RequireAuth({ children }) {
