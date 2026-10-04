@@ -21,13 +21,16 @@ export default function Login() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="kitten-auth-card card" onSubmit={handleSubmit}>
+      <div className="auth-mascot" aria-hidden="true">{'\u{1F431}'}</div>
+      <span className="auth-kicker">WELCOME BACK, CAT FRIEND</span>
       <h1>Log in</h1>
-      <p><input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required /></p>
-      <p><input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required /></p>
-      <button type="submit">Log in</button>
-      {error && <p>{error}</p>}
-      <p>No account? <Link to="/signup">Sign up</Link></p>
+      <p className="auth-intro">Your cozy corner is waiting for you.</p>
+      <p><input className="form-control" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required /></p>
+      <p><input className="form-control" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required /></p>
+      <button className="btn btn-primary auth-submit" type="submit">Log in</button>
+      {error && <p className="alert alert-danger auth-error" role="alert">{error}</p>}
+      <p className="auth-switch">No account yet? <Link to="/signup">Sign up</Link></p>
     </form>
   )
 }

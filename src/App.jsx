@@ -1,23 +1,29 @@
 import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
 import { AuthProvider, useAuth } from './context/login'
 import Signup from './pages/signup'
 import Login from './pages/login'
 import Feed from './pages/feed'
 import Friends from './pages/friends'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 
 export const ENDPOINTS = {
   // signup: `${API_URL}/signup`, // POST { email, password, username }
-  signup: 'http://localhost:3000/auth/signup',
+  signup: 'https://soc-med-api-production.up.railway.app/auth/signup',
   // login: `${API_URL}/login`, // POST { email, password } -> token
-  login: 'http://localhost:3000/auth/login',
+  login: 'https://soc-med-api-production.up.railway.app/auth/login',
   // posts: `${API_URL}/posts`, // GET public + friends' posts
-  posts: 'http://localhost:3000/posts',
+  posts: 'https://soc-med-api-production.up.railway.app/posts',
   // createPost: `${API_URL}/posts`, // POST { title, content, visibility } -> new post
-  createPost: 'http://localhost:3000/posts',
+  createPost: 'https://soc-med-api-production.up.railway.app/posts',
   // users: `${API_URL}/users`, // GET all users
-  users: 'http://localhost:3000/users',
-  // friends: `${API_URL}/friends`, // POST { friend_id } -> follow a user
-  friends: 'http://localhost:3000/friend',
+  users: 'https://soc-med-api-production.up.railway.app/users',
+  // friends: `${API_URL}/friends`, // GET the current user's friends
+  friends: 'https://soc-med-api-production.up.railway.app/friends',
+  // follow: `${API_URL}/follow`, // POST { followed_id } & GET all followed users
+  follow: 'https://soc-med-api-production.up.railway.app/follow',
 }
 
 function RequireAuth({ children }) {
@@ -34,15 +40,27 @@ function Nav() {
   const { token, logout } = useAuth()
   if (!token) {
     return (
-      <nav>
-        <Link to="/login">Login</Link> | <Link to="/signup">Sign up</Link>
+      <nav className="kitten-nav navbar navbar-expand">
+        <div className="kitten-nav-inner container-fluid">
+          <Link className="kitten-brand navbar-brand" to="/login"><span className="kitten-mark" aria-hidden="true">{'\u{1F431}'}</span><span>Meowly</span></Link>
+          <div className="kitten-nav-links">
+            <Link className="kitten-nav-link" to="/login">Login</Link>
+            <Link className="kitten-nav-link kitten-signup" to="/signup">Sign up</Link>
+          </div>
+        </div>
       </nav>
     )
   }
   return (
-    <nav>
-      <Link to="/feed">Feed</Link> | <Link to="/friends">Friends</Link> |{' '}
-      <button onClick={logout}>Log out</button>
+    <nav className="kitten-nav navbar navbar-expand">
+      <div className="kitten-nav-inner container-fluid">
+        <Link className="kitten-brand navbar-brand" to="/feed"><span className="kitten-mark" aria-hidden="true">{'\u{1F431}'}</span><span>Meowly</span></Link>
+        <div className="kitten-nav-links">
+          <Link className="kitten-nav-link" to="/feed">Feed</Link>
+          <Link className="kitten-nav-link" to="/friends">Friends</Link>
+          <button className="kitten-nav-link kitten-logout" onClick={logout}>Log out</button>
+        </div>
+      </div>
     </nav>
   )
 }
@@ -52,7 +70,6 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Nav />
-        <hr />
         <Routes>
           <Route path="/signup" element={<GuestOnly><Signup /></GuestOnly>} />
           <Route path="/login" element={<GuestOnly><Login /></GuestOnly>} />
@@ -64,3 +81,10 @@ export default function App() {
     </AuthProvider>
   )
 }
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+

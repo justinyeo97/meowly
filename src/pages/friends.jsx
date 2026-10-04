@@ -5,42 +5,34 @@ import { ENDPOINTS } from '../App'
 export default function Friends() {
   const { apiFetch } = useAuth()
   const [users, setUsers] = useState([])
-  const [followed, setFollowed] = useState({})
   const [error, setError] = useState('')
 
   useEffect(() => {
-    apiFetch(ENDPOINTS.users)
+    apiFetch(ENDPOINTS.friends)
       .then((data) => setUsers(Array.isArray(data) ? data : data.users || []))
       .catch((err) => setError(err.message))
-  }, [])
-
-  async function follow(userId) {
-    setError('')
-    try {
-      await apiFetch(ENDPOINTS.friends, {
-        method: 'POST',
-        body: JSON.stringify({ friend_id: userId }),
-      })
-      setFollowed({ ...followed, [userId]: true })
-    } catch (err) {
-      setError(err.message)
-    }
-  }
+  }, [apiFetch])
 
   return (
-    <div>
-      <h1>Friends</h1>
-      {error && <p>{error}</p>}
-      <ul>
+    <div className="kitten-friends">
+      <header className="feed-heading">
+        <div>
+          <span className="feed-kicker">YOUR FAVORITE FELLOWS</span>
+          <h1>My Litter <span aria-hidden="true">{'\u273F'}</span></h1>
+          <p>A cozy little corner for all your friends.</p>
+        </div>
+        <span className="feed-mascot" aria-hidden="true">{'\u{1F431}'}</span>
+      </header>
+      {error && <p className="alert alert-danger kitten-error" role="alert">{error}</p>}
+      <ul className="friends-grid list-unstyled">
         {users.map((user) => (
-          <li key={user.id}>
-            {user.username || user.email}{' '}
-            <button onClick={() => follow(user.id)} disabled={followed[user.id]}>
-              {followed[user.id] ? 'Following' : 'Follow'}
-            </button>
+          <li className="friend-card card" key={user.id}>
+            <span className="friend-avatar" aria-hidden="true">{'\u{1F431}'}</span>
+            <span className="friend-name">{user.username || user.email}</span>
+            <span className="friend-sparkle" aria-hidden="true">{'\u2726'}</span>
           </li>
         ))}
       </ul>
     </div>
-  )
+  ) 
 }

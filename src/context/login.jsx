@@ -3,6 +3,17 @@ import { ENDPOINTS } from '../App'
 
 const AuthContext = createContext(null)
 
+function getAuthUser(token) {
+  try {
+    const encodedPayload = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')
+    const paddedPayload = encodedPayload.padEnd(Math.ceil(encodedPayload.length / 4) * 4, '=')
+    const claims = JSON.parse(atob(paddedPayload))
+    return { ...claims.user_metadata, id: claims.sub }
+  } catch {
+    return null
+  }
+}
+
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => localStorage.getItem('token'))
 
@@ -25,7 +36,9 @@ export function AuthProvider({ children }) {
     if (res.status === 401 && token) logout()
     if (!res.ok) {
       const err = body.error?.message || body.error || body.message
-      throw new Error(err || `Request failed (${res.status})`)
+      const requestError = new Error(err || `Request failed (${res.status})`)
+      requestError.status = res.status
+      throw requestError
     }
     return body.data ?? body
   }
@@ -49,7 +62,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ token, login, signup, logout, apiFetch }}>
+    <AuthContext.Provider value={{ token, user: getAuthUser(token || ''), login, signup, logout, apiFetch }}>
       {children}
     </AuthContext.Provider>
   )

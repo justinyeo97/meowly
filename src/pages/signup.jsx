@@ -22,14 +22,17 @@ export default function Signup() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="kitten-auth-card card" onSubmit={handleSubmit}>
+      <div className="auth-mascot" aria-hidden="true">{'\u{1F431}'}</div>
+      <span className="auth-kicker">COME JOIN THE LITTER</span>
       <h1>Sign up</h1>
-      <p><input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} /></p>
-      <p><input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required /></p>
-      <p><input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required /></p>
-      <button type="submit">Sign up</button>
-      {error && <p>{error}</p>}
-      <p>Have an account? <Link to="/login">Log in</Link></p>
+      <p className="auth-intro">Make a little home for your favorite moments.</p>
+      <p><input className="form-control" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} /></p>
+      <p><input className="form-control" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required /></p>
+      <p><input className="form-control" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required /></p>
+      <button className="btn btn-primary auth-submit" type="submit">Sign up</button>
+      {error && <p className="alert alert-danger auth-error" role="alert">{error}</p>}
+      <p className="auth-switch">Already have an account? <Link to="/login">Log in</Link></p>
     </form>
   )
 }
