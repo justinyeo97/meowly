@@ -13,6 +13,7 @@ export default function Feed() {
   const currentUserId = auth.user?.id
   const [posts, setPosts] = useState([])
   const [friends, setFriends] = useState([])
+  const [friendsLoaded, setFriendsLoaded] = useState(false)
   const [followedIds, setFollowedIds] = useState(() => new Set())
   const [followedLoaded, setFollowedLoaded] = useState(false)
   const [followingIds, setFollowingIds] = useState(() => new Set())
@@ -52,9 +53,11 @@ export default function Feed() {
   }, [apiFetch, currentUserId])
 
   useEffect(() => {
+    setFriendsLoaded(false)
     apiFetch(ENDPOINTS.friends)
       .then((data) => setFriends(Array.isArray(data) ? data : data.users || []))
-      .catch(() => {})
+      .catch(() => setFriends([]))
+      .finally(() => setFriendsLoaded(true))
   }, [apiFetch])
 
   const friendIds = new Set(friends.map((friend) => friend.id ?? friend.user_id ?? friend.userId).filter((id) => id != null).map(String))
@@ -180,7 +183,8 @@ export default function Feed() {
         const authorId = getPostAuthorId(post)
         const friendPost = authorId != null && friendIds.has(String(authorId))
         const ownPost = authorId != null && currentUserId != null && String(authorId) === String(currentUserId)
-        const authorAlreadyFollowed = authorId != null && followedIds.has(String(authorId))
+        const authorIsFollowed = authorId != null && followedIds.has(String(authorId))
+        const authorAlreadyFollowed = authorIsFollowed || friendPost
         const isFollowing = authorId != null && followingIds.has(String(authorId))
 
         return (
@@ -191,10 +195,10 @@ export default function Feed() {
             <p className="post-content">{post.content}</p>
             <small className="post-meta">
               <span className="post-author">{post.author}</span>
-              {followedLoaded && authorId != null && !ownPost && String(authorId) !== String(currentUserId) && !authorAlreadyFollowed && <button className="follow-author-button btn" type="button" onClick={() => handleFollow(authorId)} disabled={isFollowing}>{isFollowing ? 'Following...' : 'Follow'}</button>}
+              {followedLoaded && friendsLoaded && authorId != null && !ownPost && String(authorId) !== String(currentUserId) && !authorAlreadyFollowed && <button className="follow-author-button btn" type="button" onClick={() => handleFollow(authorId)} disabled={isFollowing}>{isFollowing ? 'Following...' : 'Follow'}</button>}
               {ownPost && <span className="own-post-badge">You</span>}
               {friendPost && <span className="friend-source-badge">Friend</span>}
-              {authorAlreadyFollowed && <span className="followed-author-badge">Following</span>}
+              {authorIsFollowed && !friendPost && <span className="followed-author-badge">Following</span>}
               {post.created_at && <span className="post-time">{new Date(post.created_at).toLocaleString()}</span>}
             </small>
           </article>

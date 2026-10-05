@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom'
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { AuthProvider, useAuth } from './context/login'
 import Signup from './pages/signup'
@@ -83,8 +82,6 @@ export default function App() {
 }
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <App />,
 )
 
