@@ -1,369 +1,771 @@
 body {
-  background-color: #f4e1d2;
+    background-color: #f4e1d2;
 }
 
 .kitten-nav {
-  min-height: 76px;
-  padding: 0;
-  border-bottom: 1px solid #f0dce5;
-  background: rgba(255, 250, 253, 0.94);
-  box-shadow: 0 5px 20px rgba(112, 74, 91, 0.08);
+    min-height: 76px;
+    padding: 0;
+    border-bottom: 1px solid #f0dce5;
+    background: rgba(255, 250, 253, 0.94);
+    box-shadow: 0 5px 20px rgba(112, 74, 91, 0.08);
 }
 
 .kitten-nav-inner {
-  width: min(100% - 40px, 1120px);
-  margin: 0 auto;
-  padding: 0;
+    width: min(100% - 40px, 1120px);
+    margin: 0 auto;
+    padding: 0;
 }
 
 .kitten-brand.navbar-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  margin: 0;
-  color: #493744;
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  font-size: 1.45rem;
-  font-weight: 800;
-  letter-spacing: -0.06em;
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    margin: 0;
+    color: #493744;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.06em;
 }
 
-.kitten-brand:hover { color: #9b6484; }
+.kitten-brand:hover {
+    color: #9b6484;
+}
 
 .kitten-mark {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 1px solid #f0d3e2;
-  border-radius: 15px 15px 15px 5px;
-  background: #faeaf2;
-  box-shadow: inset 0 -3px 0 rgba(209, 151, 180, 0.16);
-  font-size: 1.45rem;
-  letter-spacing: 0;
-  transform-origin: 50% 85%;
-  animation: kitten-purr 3.2s ease-in-out infinite;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid #f0d3e2;
+    border-radius: 15px 15px 15px 5px;
+    background: #faeaf2;
+    box-shadow: inset 0 -3px 0 rgba(209, 151, 180, 0.16);
+    font-size: 1.45rem;
+    letter-spacing: 0;
+    transform-origin: 50% 85%;
+    animation: kitten-purr 3.2s ease-in-out infinite;
 }
 
-.kitten-brand:hover .kitten-mark { animation: kitten-wiggle 520ms ease-in-out; }
+.kitten-brand:hover .kitten-mark {
+    animation: kitten-wiggle 520ms ease-in-out;
+}
 
 @keyframes kitten-purr {
-  0%, 82%, 100% { transform: translateY(0) rotate(0); }
-  88% { transform: translateY(-3px) rotate(-5deg); }
-  94% { transform: translateY(0) rotate(5deg); }
+
+    0%,
+    82%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    88% {
+        transform: translateY(-3px) rotate(-5deg);
+    }
+
+    94% {
+        transform: translateY(0) rotate(5deg);
+    }
 }
 
 @keyframes kitten-wiggle {
-  0%, 100% { transform: rotate(0); }
-  30% { transform: rotate(-12deg) scale(1.06); }
-  65% { transform: rotate(10deg) scale(1.06); }
+
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    30% {
+        transform: rotate(-12deg) scale(1.06);
+    }
+
+    65% {
+        transform: rotate(10deg) scale(1.06);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kitten-mark { animation: none; }
-  .kitten-brand:hover .kitten-mark { animation: none; }
+    .kitten-mark {
+        animation: none;
+    }
+
+    .kitten-brand:hover .kitten-mark {
+        animation: none;
+    }
 }
 
 .kitten-nav-links {
-  display: flex;
-  align-items: center;
-  gap: clamp(12px, 2.5vw, 30px);
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2.5vw, 30px);
 }
 
 .kitten-nav-link {
-  padding: 9px 4px;
-  border: 0;
-  border-radius: 999px;
-  color: #705b6b;
-  background: transparent;
-  font: inherit;
-  font-size: 0.94rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+    padding: 9px 4px;
+    border: 0;
+    border-radius: 999px;
+    color: #705b6b;
+    background: transparent;
+    font: inherit;
+    font-size: 0.94rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
 }
 
 .kitten-nav-link:hover,
 .kitten-nav-link:focus-visible {
-  color: #9b6484;
-  background: #faedf4;
-  transform: translateY(-1px);
+    color: #9b6484;
+    background: #faedf4;
+    transform: translateY(-1px);
 }
 
 .kitten-nav-links .kitten-signup {
-  padding: 10px 19px;
-  color: #fff;
-  background: #bd82a2;
-  box-shadow: 0 4px 10px rgba(167, 105, 140, 0.18);
+    padding: 10px 19px;
+    color: #fff;
+    background: #bd82a2;
+    box-shadow: 0 4px 10px rgba(167, 105, 140, 0.18);
 }
 
 .kitten-nav-links .kitten-signup:hover,
 .kitten-nav-links .kitten-signup:focus-visible {
-  color: #fff;
-  background: #a96d8d;
+    color: #fff;
+    background: #a96d8d;
 }
 
-.kitten-logout { cursor: pointer; }
+.kitten-logout {
+    cursor: pointer;
+}
 
 @media (max-width: 520px) {
-  .kitten-nav { min-height: 68px; }
-  .kitten-nav-inner { width: calc(100% - 28px); }
-  .kitten-brand.navbar-brand { gap: 7px; font-size: 1.2rem; }
-  .kitten-mark { width: 36px; height: 36px; font-size: 1.2rem; }
-  .kitten-nav-links { gap: 8px; }
-  .kitten-nav-link { font-size: 0.82rem; }
-  .kitten-nav-links .kitten-signup { padding: 8px 12px; }
+    .kitten-nav {
+        min-height: 68px;
+    }
+
+    .kitten-nav-inner {
+        width: calc(100% - 28px);
+    }
+
+    .kitten-brand.navbar-brand {
+        gap: 7px;
+        font-size: 1.2rem;
+    }
+
+    .kitten-mark {
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+    }
+
+    .kitten-nav-links {
+        gap: 8px;
+    }
+
+    .kitten-nav-link {
+        font-size: 0.82rem;
+    }
+
+    .kitten-nav-links .kitten-signup {
+        padding: 8px 12px;
+    }
 }
 
 /* Feed styling */
 .kitten-feed {
-  width: min(100% - 32px, 740px);
-  margin: 0 auto;
-  padding: 42px 0 80px;
-  color: #493744;
+    width: min(100% - 32px, 740px);
+    margin: 0 auto;
+    padding: 42px 0 80px;
+    color: #493744;
 }
 
 .feed-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 26px;
 }
 
 .feed-kicker {
-  color: #a76f91;
-  font-size: .68rem;
-  font-weight: 800;
-  letter-spacing: .15em;
+    color: #a76f91;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .15em;
 }
 
 .feed-heading h1 {
-  margin: 5px 0 4px;
-  color: #503d4c;
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  font-size: clamp(2rem, 6vw, 2.8rem);
-  font-weight: 800;
-  letter-spacing: -.055em;
+    margin: 5px 0 4px;
+    color: #503d4c;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -.055em;
 }
 
-.feed-heading h1 span { color: #e49bb9; }
-.feed-heading p { margin: 0; color: #8b7585; }
+.feed-heading h1 span {
+    color: #e49bb9;
+}
+
+.feed-heading p {
+    margin: 0;
+    color: #8b7585;
+}
 
 .feed-mascot {
-  display: grid;
-  width: 78px;
-  height: 78px;
-  flex: 0 0 78px;
-  place-items: center;
-  border: 1px solid #f0d5e3;
-  border-radius: 26px 26px 26px 8px;
-  background: linear-gradient(145deg, #fff7fb, #f7e5ef);
-  box-shadow: 0 9px 20px rgba(129, 85, 111, .11);
-  font-size: 2.6rem;
-  transform: rotate(4deg);
+    display: grid;
+    width: 78px;
+    height: 78px;
+    flex: 0 0 78px;
+    place-items: center;
+    border: 1px solid #f0d5e3;
+    border-radius: 26px 26px 26px 8px;
+    background: linear-gradient(145deg, #fff7fb, #f7e5ef);
+    box-shadow: 0 9px 20px rgba(129, 85, 111, .11);
+    font-size: 2.6rem;
+    transform: rotate(4deg);
 }
 
-.kitten-composer.card, .kitten-post.card {
-  overflow: hidden;
-  border: 1px solid #efdde7;
-  border-radius: 20px;
-  background: rgba(255, 252, 254, .97);
-  box-shadow: 0 9px 25px rgba(103, 72, 91, .07);
+.kitten-composer.card,
+.kitten-post.card {
+    overflow: hidden;
+    border: 1px solid #efdde7;
+    border-radius: 20px;
+    background: rgba(255, 252, 254, .97);
+    box-shadow: 0 9px 25px rgba(103, 72, 91, .07);
 }
 
-.kitten-composer.card { padding: 22px; }
-.composer-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
-.composer-paw { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 15px 15px 15px 5px; color: #a76f91; background: #faeaf2; font-size: 1.3rem; }
-.composer-heading h2 { margin: 0; color: #503d4c; font-size: 1.05rem; font-weight: 800; }
-.composer-heading p { margin: 3px 0 0; color: #9b8795; font-size: .86rem; }
-.composer-field { margin: 0 0 12px; }
-.kitten-feed .form-control { padding: 12px 14px; border-color: #ead8e2; border-radius: 12px; color: #493744; background: #fff; }
-.kitten-feed textarea.form-control { min-height: 105px; resize: vertical; }
-.kitten-feed .form-control:focus { border-color: #d69ab7; box-shadow: 0 0 0 .22rem rgba(214, 154, 183, .18); }
-.kitten-feed .form-control::placeholder { color: #b29eac; }
-.visibility-options { display: flex; flex-wrap: wrap; gap: 12px; margin: 2px 0 17px; }
-.visibility-options .form-check { display: inline-flex; align-items: center; gap: 7px; margin: 0; color: #745f70; font-size: .9rem; }
-.visibility-options .form-check-input { float: none; margin: 0; border-color: #d7bdcc; }
-.visibility-options .form-check-input:checked { border-color: #bd82a2; background-color: #bd82a2; }
-.kitten-post-button.btn.btn-primary { min-width: 120px; padding: 10px 22px; border: 0; border-radius: 999px; background: #bd82a2; font-weight: 800; }
-.kitten-post-button.btn.btn-primary:hover { background: #a96d8d; }
-.kitten-error { margin: 14px 0 0; border-color: #f0c9d4; border-radius: 12px; color: #934d65; background: #fff0f4; }
+.kitten-composer.card {
+    padding: 22px;
+}
 
-.feed-section-title { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 34px 0 17px; color: #bf89a5; }
-.feed-section-title span { font-size: .88rem; }
-.feed-section-title h2 { margin: 0; color: #785a70; font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-.feed-empty { padding: 22px; border: 1px dashed #e6cbd9; border-radius: 16px; color: #927c8d; background: rgba(255, 250, 253, .7); text-align: center; }
-.kitten-post.card { position: relative; margin-bottom: 14px; padding: 19px 21px; }
-.kitten-post.card::after { position: absolute; top: 0; right: 0; width: 58px; height: 58px; border-radius: 0 0 0 58px; background: #fbf0f5; content: ""; }
-.post-title-row { position: relative; z-index: 1; display: flex; align-items: center; gap: 11px; margin-bottom: 14px; }
-.post-avatar { display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; border-radius: 14px 14px 14px 5px; background: #faeaf2; font-size: 1.35rem; }
-.post-title-row h3 { margin: 0; color: #503d4c; font-size: 1.12rem; font-weight: 800; overflow-wrap: anywhere; }
-.post-sparkle { margin-left: auto; color: #cf92b0; font-size: 1.15rem; }
-.follow-author-button.btn { z-index: 1; margin: 0; padding: 5px 11px; border: 1px solid #d9abc2; border-radius: 999px; color: #8c5877; background: #fff8fc; font-size: .72rem; font-weight: 800; white-space: nowrap; }
-.follow-author-button.btn:hover:not(:disabled) { border-color: #bd82a2; color: #fff; background: #bd82a2; }
-.follow-author-button.btn:disabled { border-color: #e7d5df; color: #9a8291; background: #f7eff4; }
-.post-content { margin: 0 0 15px; color: #675464; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
-.post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; color: #a28e9f; font-size: .78rem; }
-.post-author { display: inline-flex; align-items: center; min-height: 30px; padding: 5px 11px; border: 1px solid #e7c5d7; border-radius: 999px; color: #74435f; background: #faeaf2; font-size: .82rem; font-weight: 800; }
-.own-post-badge { display: inline-flex; align-items: center; min-height: 25px; padding: 4px 9px; border: 1px solid #e8c9a7; border-radius: 999px; color: #865c2f; background: #fff4e5; font-size: .68rem; font-weight: 800; letter-spacing: .04em; }
-.post-time { color: #9d8a9a; }
-.friend-source-badge { display: inline-flex; align-items: center; min-height: 25px; padding: 4px 9px; border: 1px solid #d9e8cf; border-radius: 999px; color: #55734b; background: #f0f7e9; font-size: .68rem; font-weight: 800; letter-spacing: .04em; }
-.followed-author-badge { display: inline-flex; align-items: center; min-height: 25px; padding: 4px 9px; border: 1px solid #d8c8ea; border-radius: 999px; color: #71558c; background: #f5effb; font-size: .68rem; font-weight: 800; letter-spacing: .04em; }
+.composer-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.composer-paw {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 15px 15px 15px 5px;
+    color: #a76f91;
+    background: #faeaf2;
+    font-size: 1.3rem;
+}
+
+.composer-heading h2 {
+    margin: 0;
+    color: #503d4c;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.composer-heading p {
+    margin: 3px 0 0;
+    color: #9b8795;
+    font-size: .86rem;
+}
+
+.composer-field {
+    margin: 0 0 12px;
+}
+
+.kitten-feed .form-control {
+    padding: 12px 14px;
+    border-color: #ead8e2;
+    border-radius: 12px;
+    color: #493744;
+    background: #fff;
+}
+
+.kitten-feed textarea.form-control {
+    min-height: 105px;
+    resize: vertical;
+}
+
+.kitten-feed .form-control:focus {
+    border-color: #d69ab7;
+    box-shadow: 0 0 0 .22rem rgba(214, 154, 183, .18);
+}
+
+.kitten-feed .form-control::placeholder {
+    color: #b29eac;
+}
+
+.visibility-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 2px 0 17px;
+}
+
+.visibility-options .form-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    color: #745f70;
+    font-size: .9rem;
+}
+
+.visibility-options .form-check-input {
+    float: none;
+    margin: 0;
+    border-color: #d7bdcc;
+}
+
+.visibility-options .form-check-input:checked {
+    border-color: #bd82a2;
+    background-color: #bd82a2;
+}
+
+.kitten-post-button.btn.btn-primary {
+    min-width: 120px;
+    padding: 10px 22px;
+    border: 0;
+    border-radius: 999px;
+    background: #bd82a2;
+    font-weight: 800;
+}
+
+.kitten-post-button.btn.btn-primary:hover {
+    background: #a96d8d;
+}
+
+.kitten-error {
+    margin: 14px 0 0;
+    border-color: #f0c9d4;
+    border-radius: 12px;
+    color: #934d65;
+    background: #fff0f4;
+}
+
+.feed-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 34px 0 17px;
+    color: #bf89a5;
+}
+
+.feed-section-title span {
+    font-size: .88rem;
+}
+
+.feed-section-title h2 {
+    margin: 0;
+    color: #785a70;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.feed-empty {
+    padding: 22px;
+    border: 1px dashed #e6cbd9;
+    border-radius: 16px;
+    color: #927c8d;
+    background: rgba(255, 250, 253, .7);
+    text-align: center;
+}
+
+.kitten-post.card {
+    position: relative;
+    margin-bottom: 14px;
+    padding: 19px 21px;
+}
+
+.kitten-post.card::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 58px;
+    height: 58px;
+    border-radius: 0 0 0 58px;
+    background: #fbf0f5;
+    content: "";
+}
+
+.post-title-row {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 14px;
+}
+
+.post-avatar {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    place-items: center;
+    border-radius: 14px 14px 14px 5px;
+    background: #faeaf2;
+    font-size: 1.35rem;
+}
+
+.post-title-row h3 {
+    margin: 0;
+    color: #503d4c;
+    font-size: 1.12rem;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.post-sparkle {
+    margin-left: auto;
+    color: #cf92b0;
+    font-size: 1.15rem;
+}
+
+.follow-author-button.btn {
+    z-index: 1;
+    margin: 0;
+    padding: 5px 11px;
+    border: 1px solid #d9abc2;
+    border-radius: 999px;
+    color: #8c5877;
+    background: #fff8fc;
+    font-size: .72rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.follow-author-button.btn:hover:not(:disabled) {
+    border-color: #bd82a2;
+    color: #fff;
+    background: #bd82a2;
+}
+
+.follow-author-button.btn:disabled {
+    border-color: #e7d5df;
+    color: #9a8291;
+    background: #f7eff4;
+}
+
+.post-content {
+    margin: 0 0 15px;
+    color: #675464;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+    color: #a28e9f;
+    font-size: .78rem;
+}
+
+.post-author {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 5px 11px;
+    border: 1px solid #e7c5d7;
+    border-radius: 999px;
+    color: #74435f;
+    background: #faeaf2;
+    font-size: .82rem;
+    font-weight: 800;
+}
+
+.own-post-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 9px;
+    border: 1px solid #e8c9a7;
+    border-radius: 999px;
+    color: #865c2f;
+    background: #fff4e5;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+
+.post-time {
+    color: #9d8a9a;
+}
+
+.friend-source-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 9px;
+    border: 1px solid #d9e8cf;
+    border-radius: 999px;
+    color: #55734b;
+    background: #f0f7e9;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+
+.followed-author-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 9px;
+    border: 1px solid #d8c8ea;
+    border-radius: 999px;
+    color: #71558c;
+    background: #f5effb;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
 
 @media (max-width: 520px) {
-  .kitten-feed { padding-top: 30px; }
-  .feed-mascot { width: 62px; height: 62px; flex-basis: 62px; border-radius: 21px 21px 21px 7px; font-size: 2.1rem; }
-  .kitten-composer.card { padding: 16px; }
-  .kitten-post.card { padding: 16px; }
+    .kitten-feed {
+        padding-top: 30px;
+    }
+
+    .feed-mascot {
+        width: 62px;
+        height: 62px;
+        flex-basis: 62px;
+        border-radius: 21px 21px 21px 7px;
+        font-size: 2.1rem;
+    }
+
+    .kitten-composer.card {
+        padding: 16px;
+    }
+
+    .kitten-post.card {
+        padding: 16px;
+    }
 }
 
 .kitten-friends {
-  width: min(100% - 32px, 740px);
-  margin: 0 auto;
-  padding: 42px 0 80px;
-  color: #493744;
+    width: min(100% - 32px, 740px);
+    margin: 0 auto;
+    padding: 42px 0 80px;
+    color: #493744;
 }
 
-.kitten-friends .feed-heading { margin-bottom: 28px; }
-.kitten-friends .feed-heading h1 span { color: #e49bb9; }
-.kitten-friends .kitten-error { margin: 0 0 18px; }
+.kitten-friends .feed-heading {
+    margin-bottom: 28px;
+}
+
+.kitten-friends .feed-heading h1 span {
+    color: #e49bb9;
+}
+
+.kitten-friends .kitten-error {
+    margin: 0 0 18px;
+}
 
 .friends-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
-  gap: 14px;
-  margin: 0;
-  padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+    gap: 14px;
+    margin: 0;
+    padding: 0;
 }
 
 .friend-card.card {
-  position: relative;
-  display: flex;
-  min-width: 0;
-  min-height: 88px;
-  flex-direction: row;
-  align-items: center;
-  gap: 14px;
-  overflow: hidden;
-  padding: 16px;
-  border: 1px solid #efdde7;
-  border-radius: 19px;
-  color: #503d4c;
-  background: rgba(255, 252, 254, .97);
-  box-shadow: 0 8px 22px rgba(103, 72, 91, .065);
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 88px;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    overflow: hidden;
+    padding: 16px;
+    border: 1px solid #efdde7;
+    border-radius: 19px;
+    color: #503d4c;
+    background: rgba(255, 252, 254, .97);
+    box-shadow: 0 8px 22px rgba(103, 72, 91, .065);
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .friend-card.card:hover {
-  transform: translateY(-2px);
-  border-color: #e4bfd1;
-  box-shadow: 0 12px 26px rgba(103, 72, 91, .11);
+    transform: translateY(-2px);
+    border-color: #e4bfd1;
+    box-shadow: 0 12px 26px rgba(103, 72, 91, .11);
 }
 
 .friend-card.card::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 0 0 0 44px;
-  background: #fbf0f5;
-  content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 0 0 0 44px;
+    background: #fbf0f5;
+    content: "";
 }
 
 .friend-avatar {
-  display: grid;
-  width: 48px;
-  height: 48px;
-  flex: 0 0 48px;
-  place-items: center;
-  border: 1px solid #f0d5e3;
-  border-radius: 17px 17px 17px 6px;
-  background: #faeaf2;
-  font-size: 1.6rem;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    place-items: center;
+    border: 1px solid #f0d5e3;
+    border-radius: 17px 17px 17px 6px;
+    background: #faeaf2;
+    font-size: 1.6rem;
 }
 
 .friend-name {
-  min-width: 0;
-  overflow: hidden;
-  font-weight: 800;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    min-width: 0;
+    overflow: hidden;
+    font-weight: 800;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.friend-sparkle { z-index: 1; margin-left: auto; color: #cf92b0; }
+.friend-sparkle {
+    z-index: 1;
+    margin-left: auto;
+    color: #cf92b0;
+}
 
 @media (max-width: 520px) {
-  .kitten-friends { padding-top: 30px; }
+    .kitten-friends {
+        padding-top: 30px;
+    }
 }
 
 .kitten-auth-card.card {
-  position: relative;
-  width: min(100% - 32px, 450px);
-  margin: 54px auto 80px;
-  padding: 34px clamp(22px, 7vw, 42px) 29px;
-  overflow: hidden;
-  border: 1px solid #efdde7;
-  border-radius: 24px;
-  background: rgba(255, 252, 254, .97);
-  box-shadow: 0 14px 38px rgba(103, 72, 91, .1);
-  text-align: center;
+    position: relative;
+    width: min(100% - 32px, 450px);
+    margin: 54px auto 80px;
+    padding: 34px clamp(22px, 7vw, 42px) 29px;
+    overflow: hidden;
+    border: 1px solid #efdde7;
+    border-radius: 24px;
+    background: rgba(255, 252, 254, .97);
+    box-shadow: 0 14px 38px rgba(103, 72, 91, .1);
+    text-align: center;
 }
 
 .kitten-auth-card::before {
-  position: absolute;
-  top: -45px;
-  right: -38px;
-  width: 115px;
-  height: 115px;
-  border-radius: 50%;
-  background: #fcf0f6;
-  content: "";
+    position: absolute;
+    top: -45px;
+    right: -38px;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    background: #fcf0f6;
+    content: "";
 }
 
 .auth-mascot {
-  position: relative;
-  display: grid;
-  width: 68px;
-  height: 68px;
-  margin: 0 auto 16px;
-  place-items: center;
-  border: 1px solid #f0d5e3;
-  border-radius: 22px 22px 22px 7px;
-  background: linear-gradient(145deg, #fff7fb, #f7e5ef);
-  box-shadow: 0 7px 16px rgba(129, 85, 111, .1);
-  font-size: 2.2rem;
+    position: relative;
+    display: grid;
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 16px;
+    place-items: center;
+    border: 1px solid #f0d5e3;
+    border-radius: 22px 22px 22px 7px;
+    background: linear-gradient(145deg, #fff7fb, #f7e5ef);
+    box-shadow: 0 7px 16px rgba(129, 85, 111, .1);
+    font-size: 2.2rem;
 }
 
 .auth-kicker {
-  color: #a76f91;
-  font-size: .66rem;
-  font-weight: 800;
-  letter-spacing: .16em;
+    color: #a76f91;
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: .16em;
 }
 
 .kitten-auth-card h1 {
-  margin: 7px 0 4px;
-  color: #503d4c;
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  font-size: 2.25rem;
-  font-weight: 800;
-  letter-spacing: -.055em;
+    margin: 7px 0 4px;
+    color: #503d4c;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -.055em;
 }
 
-.auth-intro { margin: 0 0 23px; color: #8b7585; font-size: .92rem; }
-.kitten-auth-card > p:not(.auth-intro):not(.auth-switch):not(.auth-error) { margin: 0 0 13px; }
-.kitten-auth-card .form-control { min-height: 48px; padding: 12px 14px; border-color: #ead8e2; border-radius: 12px; color: #493744; }
-.kitten-auth-card .form-control:focus { border-color: #d69ab7; box-shadow: 0 0 0 .22rem rgba(214, 154, 183, .18); }
-.kitten-auth-card .form-control::placeholder { color: #b29eac; }
-.auth-submit.btn.btn-primary { width: 100%; margin: 5px 0 14px; padding: 11px 20px; border: 0; border-radius: 999px; background: #bd82a2; font-weight: 800; }
-.auth-submit.btn.btn-primary:hover { background: #a96d8d; }
-.auth-error { margin: 0 0 14px; border-color: #f0c9d4; border-radius: 12px; color: #934d65; background: #fff0f4; text-align: left; }
-.auth-switch { margin: 0; color: #8b7585; font-size: .88rem; }
-.auth-switch a { color: #a76f91; font-weight: 800; text-decoration: none; }
-.auth-switch a:hover { color: #824d6b; text-decoration: underline; }
+.auth-intro {
+    margin: 0 0 23px;
+    color: #8b7585;
+    font-size: .92rem;
+}
+
+.kitten-auth-card>p:not(.auth-intro):not(.auth-switch):not(.auth-error) {
+    margin: 0 0 13px;
+}
+
+.kitten-auth-card .form-control {
+    min-height: 48px;
+    padding: 12px 14px;
+    border-color: #ead8e2;
+    border-radius: 12px;
+    color: #493744;
+}
+
+.kitten-auth-card .form-control:focus {
+    border-color: #d69ab7;
+    box-shadow: 0 0 0 .22rem rgba(214, 154, 183, .18);
+}
+
+.kitten-auth-card .form-control::placeholder {
+    color: #b29eac;
+}
+
+.auth-submit.btn.btn-primary {
+    width: 100%;
+    margin: 5px 0 14px;
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 999px;
+    background: #bd82a2;
+    font-weight: 800;
+}
+
+.auth-submit.btn.btn-primary:hover {
+    background: #a96d8d;
+}
+
+.auth-error {
+    margin: 0 0 14px;
+    border-color: #f0c9d4;
+    border-radius: 12px;
+    color: #934d65;
+    background: #fff0f4;
+    text-align: left;
+}
+
+.auth-switch {
+    margin: 0;
+    color: #8b7585;
+    font-size: .88rem;
+}
+
+.auth-switch a {
+    color: #a76f91;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    color: #824d6b;
+    text-decoration: underline;
+}
 
 @media (max-width: 520px) {
-  .kitten-auth-card.card { margin-top: 34px; padding: 28px 21px 24px; }
+    .kitten-auth-card.card {
+        margin-top: 34px;
+        padding: 28px 21px 24px;
+    }
 }

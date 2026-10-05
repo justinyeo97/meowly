@@ -71,10 +71,10 @@ export default function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/signup" element={<GuestOnly><Signup /></GuestOnly>} />
-          <Route path="/login" element={<GuestOnly><Login /></GuestOnly>} />
-          <Route path="/feed" element={<RequireAuth><Feed /></RequireAuth>} />
-          <Route path="/friends" element={<RequireAuth><Friends /></RequireAuth>} />
+          <Route path="signup" element={<GuestOnly><Signup /></GuestOnly>} />
+          <Route path="login" element={<GuestOnly><Login /></GuestOnly>} />
+          <Route path="feed" element={<RequireAuth><Feed /></RequireAuth>} />
+          <Route path="friends" element={<RequireAuth><Friends /></RequireAuth>} />
           <Route path="*" element={<Navigate to="/feed" replace />} />
         </Routes>
       </BrowserRouter>
