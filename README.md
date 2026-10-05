@@ -38,7 +38,7 @@ Authorization: Bearer <access_token>
 | `POST` | `/auth/signup` | No | Creates an account. JSON body: `{ "username": "...", "email": "...", "password": "..." }`. Returns the created user. |
 | `POST` | `/auth/login` | No | Signs in. JSON body: `{ "email": "...", "password": "..." }`. Returns a session containing the access token. |
 | `GET` | `/whoami` | Yes | Returns the authenticated user's `userId`, `email`, and `role`. |
-| `GET` | `/follow` | Yes | Returns the current user's follow relationships, including `followed_id` and the followed user's `id` and `username`. |
+| `GET` | `/follow` | Yes | Returns the current user's follow relationships as rows containing `followed_id`. |
 | `POST` | `/follow` | Yes | Follows a user. JSON body: `{ "followed_id": "<user-id>" }`. Returns `201` on success and `409` if already following. |
 | `GET` | `/friends` | Yes | Returns users with a mutual follow relationship with the current user, including their `id`, `username`, and `email`. |
 | `GET` | `/posts` | Yes | Returns public posts and friends-only posts from the current user and mutual friends, newest first. |

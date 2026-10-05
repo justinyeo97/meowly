@@ -38,17 +38,20 @@ export default function Feed() {
 
   useEffect(() => {
     setFollowedLoaded(false)
-    apiFetch(ENDPOINTS.follow)
+    apiFetch(ENDPOINTS.follow, { cache: 'no-store' })
       .then((data) => {
-        const followRows = Array.isArray(data) ? data : []
+        const followRows = Array.isArray(data) ? data : Array.isArray(data?.data) ? data.data : []
         setFollowedIds(new Set(
           followRows
-            .map((relationship) => relationship.followed_id)
+            .map((relationship) => relationship.followed_id ?? relationship.users?.id)
             .filter((followedId) => followedId != null)
             .map(String),
         ))
       })
-      .catch(() => setFollowedIds(new Set()))
+      .catch((err) => {
+        setFollowedIds(new Set())
+        setError(`Could not load followed users: ${err.message}`)
+      })
       .finally(() => setFollowedLoaded(true))
   }, [apiFetch, currentUserId])
 
@@ -72,9 +75,6 @@ export default function Feed() {
         body: JSON.stringify({ followed_id: String(authorId) }),
       })
       setFollowedIds((current) => new Set(current).add(id))
-      setFriends((current) => current.some((friend) => String(friend.id ?? friend.user_id) === id)
-        ? current
-        : [...current, { id: authorId }])
     } catch (err) {
       if (err.status === 409 || err.message === 'Already following this user') {
         setFollowedIds((current) => new Set(current).add(id))
